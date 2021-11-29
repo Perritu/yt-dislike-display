@@ -10,22 +10,24 @@
 // ==/UserScript==
 
 (function(w, d){
+  // Name just because it's an excellent swimmer
+  let golduck = function(pool, route){
+    for(let e of route){
+      if(undefined === pool[e]){
+        return false;
+      }
+
+      pool = pool[e];      
+    }
+
+    return true;
+  }
+
   // Name has no relation, just remembered this from an old mmo.
   let drabaki = function(){
     // Let's see if all we need is already defined ;).
     let dive  = 'yt.config_.SBOX_SETTINGS.SEARCHBOX_COMPONENT.__dataHost.parentComponent.__data.data.playerResponse.videoDetails'.split('.')
-    let diver = function(pool, oxygen){
-      if(0 == oxygen.length) return true
-
-      if(undefined == pool[oxygen[0]]){
-        console.info('oxygen stooped en ', oxygen[0])
-        return false
-      }
-
-      return diver(pool[oxygen[0]], oxygen.slice(1))
-    }
-
-    if(!diver(w, dive)) return self.setTimeout(drabaki, 100) // Wait until all my shit is loaded.
+    if(!golduck(w, dive)) return self.setTimeout(drabaki, 100); // Wait for my shit to load.
 
     let vidTails        = w.yt.config_.SBOX_SETTINGS.SEARCHBOX_COMPONENT.__dataHost.parentComponent.__data.data.playerResponse.videoDetails
     let likesElement    = d.querySelector('div#top-level-buttons-computed > ytd-toggle-button-renderer:nth-of-type(1) #text')
@@ -47,17 +49,7 @@
   let eltrion = function(){
     // See if we can get the meta.
     let dive  = 'yt.config_.SBOX_SETTINGS.SEARCHBOX_COMPONENT.__dataHost.parentComponent.__data.data.playerResponse.videoDetails.videoId'.split('.')
-    let diver = function(pool, oxygen){
-      if(0 == oxygen.length) return true
-
-      if(undefined == pool[oxygen[0]]){
-        console.info('oxygen stooped en ', oxygen[0])
-        return false
-      }
-
-      return diver(pool[oxygen[0]], oxygen.slice(1))
-    }
-    if(!diver(w, dive)) return // Wait for the next loop, we have nothing left here.
+    if(!golduck(w, dive)) return // Wait for the next loop, we have nothing left here.
 
     let oldId = w.çÜ || '' // Just something very weird to store this magic string. :D
     let vidId = w.yt.config_.SBOX_SETTINGS.SEARCHBOX_COMPONENT.__dataHost.parentComponent.__data.data.playerResponse.videoDetails.videoId
