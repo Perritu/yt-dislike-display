@@ -2,7 +2,7 @@
 
 Plot: a simple script to fetch that data from somewhere we can still get that
 usefull number, so we can KNOW how much disaproved is, regardless that
-garbage plot about rides. ¯\\_(ツ)_/¯
+garbage plot about rides. `¯\_(ツ)_/¯`
 
 # Installation.
 
